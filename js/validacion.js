@@ -15,52 +15,21 @@
   })
   })() 
   
-  
-   
-      //function showAlertSuccess() {
-         // document.getElementById("alert-success").classList.add("show");
-     // }
-      
-     // function showAlertError() {
-         // document.getElementById("alert-danger").classList.add("show");
-     // }
-      
-      
-          //document.getElementById('regBtn').addEventListener('click', function(){
-              
-             // const nombre = document.getElementById('nombre').value;
-             // const apellido = document.getElementById('apellido').value;
-              //const email = document.getElementById('email').value;
-             // const password1 = document.getElementById('password1').value;
-             // const password2 = document.getElementById('password2').value;
-             // const password1Largo = password1.length; // password1 es un string y quiero obtener su largo para compararlo con el atributo minlength
-             // const password1Minimo = document.getElementById('password1').getAttribute('minlength'); // acá coloco en una variable el atributo minlength
-              //const terminos = document.getElementById('terminos').checked;
-              //if (nombre && apellido && email && terminos && password1 && password2 && password1 === password2 && password1Largo >= password1Minimo) {
-          
-                 // showAlertSuccess();
-             // }else { showAlertError();
-              
-                 // }
-  
-     
-  
-          
   const form = document.getElementById('form');
   const name = document.getElementById('nombre');
   const apellido = document.getElementById ('apellido');
   const correo = document.getElementById('email');
   const contraseña = document.getElementById('password1');
   const contraseña2 = document.getElementById('password2');
-  const TyS = document.getElementById('terminos');
   
   const errorName = document.getElementById('mensaje');
   const errorApellido = document.getElementById('mensaje2');
   const errorEmail = document.getElementById('mensaje3');
   const errorContraseña = document.getElementById('mensaje4');
   const errorContraseña2 = document.getElementById('mensaje5');
-  const errorTyS = document.getElementById('mensaje6');
-  
+
+  const modalCheckbox = document.getElementById('modalCheckbox');
+  const acepto = document.getElementById('acepto');
   
    // Agregar un event listener para cuando el usuario intente enviar el formulario
    form.addEventListener('submit', function(event) {
@@ -89,11 +58,6 @@
           errorContraseña.textContent = contraseña.validationMessage;
           event.preventDefault(); // Evitar que se envíe el formulario si hay un error
       }
-   
-  
-  
-  
-  
   
       contraseña2.setCustomValidity("");
       errorContraseña2.textContent = "";
@@ -144,16 +108,26 @@
       errorEmail.textContent = correo.validationMessage;
       event.preventDefault();     
       }
+
+    if (!modalCheckbox.checked) {
+        
+        modalCheckbox.classList.add('error');
+        errorMessage.textContent = "Debes aceptar los términos y condiciones.";
+    } else {
+      
+        modalCheckbox.classList.remove('error');
+        errorMessage.textContent = "";
+    }
   });
   
   
   
-  const terminosCheckbox = document.getElementById('terminosCheckbox');
+  
   const modalButton = document.getElementById('modalButton');
   const errorMessage = document.getElementById('errorMessage');
   const modal = document.getElementById('myModal');
   const closeModal = document.getElementById('closeModal');
-  const modalCheckbox = document.getElementById('modalCheckbox');
+ 
   
   // Función para mostrar u ocultar el modal
   function toggleModal() {
@@ -162,37 +136,39 @@
   
   // Evento para abrir el modal
   modalButton.addEventListener('click', function() {
-      if (!terminosCheckbox.checked) {
-          errorMessage.textContent = "Debes aceptar los términos y condiciones para continuar.";
-          modalButton.classList.add('error'); // Añadir clase de error al botón
-          terminosCheckbox.classList.add('error'); // Añadir clase de error al checkbox
-          return;
-      }
-  
-      errorMessage.textContent = "";
-      modalButton.classList.remove('error'); // Limpiar clase de error
-      terminosCheckbox.classList.remove('error'); // Limpiar clase de error
       toggleModal(); // Abrir el modal
   });
   
   // Evento para cerrar el modal
   closeModal.addEventListener('click', toggleModal);
   
-  // Evento para manejar el checkbox dentro del modal
-  modalCheckbox.addEventListener('change', function() {
-      if (!modalCheckbox.checked) {
-          modalCheckbox.classList.add('error');
-          errorMessage.textContent = "Debes aceptar los términos y condiciones.";
-      } else {
-          modalCheckbox.classList.remove('error');
-          errorMessage.textContent = "";
-      }
-  });
   
   // Cerrar el modal si se hace clic fuera de él
-  window.onclick = function(event) {
-      if (event.target === modal) {
-          toggleModal();
-      }
+ // Cerrar el modal si se hace clic fuera de él
+ window.onclick = function(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
   };
   
+
+  modalCheckbox.addEventListener('click', function() {
+  if (!modalCheckbox.checked) {
+    acepto.classList.remove('success');
+    acepto.classList.add('error');
+   
+} else {
+    acepto.classList.remove('error');
+    acepto.classList.add('success');
+ 
+}
+  });
+
+ /* github: julieta-fuentes, nombre: Julieta Fuentes */
+ /* github: stefaniecoronel, nombre: Stefanie Coronel*/
+ /* github: erikamaidana50, nombre: Erika Maidana */
+ /* github: melaniotamendi, nombre: Melani Otamendi */
+ /* github: GiorginaSerron, nombre: Giorgina Serron  */
+ 
+/* Recordatorio : hay que corregir que los input se modifiquen en el momento y no después de cada submit
+Hacer que la frase "terminos y servicios" se ponga en rojo en caso de que no se hayan aceptado*/ 

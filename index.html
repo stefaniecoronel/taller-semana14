@@ -52,26 +52,29 @@
 
             </div>
 
-            <h1>Aceptar Términos y Condiciones</h1>
-    <label>
-        <input type="checkbox" id="terminosCheckbox">
-        Acepto los términos y condiciones
-    </label>
-    <br>
-    <button id="modalButton">Abrir Modal</button>
-    <span id="errorMessage" class="error-text"></span>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span id="closeModal" style="cursor:pointer;">&times; Cerrar</span>
-            <h2>Términos y Condiciones</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi recusandae eum, odit voluptatum officiis! Commodi magni perspiciatis animi, praesentium quas saepe earum minima consectetur, sit, ut minus dolorem voluptatum?</p>
-            <label>
-                <input type="checkbox" id="modalCheckbox">
-                Acepto los términos y condiciones
-            </label>
-        </div>
-    </div>
+            
+            <div class="form-check">
+              <br>
+              <a class="text-decoration-underline text-primary" id="modalButton">Terminos y condiciones</a>
+              <span id="errorMessage" class="error-text"></span>
+              
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="text-end" id="closeModal" style="cursor:pointer;">&times; Cerrar</span>
+                  <h2>Términos y Condiciones del Servicio</h2>
+                  <hr>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi recusandae eum, odit voluptatum officiis! Commodi magni perspiciatis animi, praesentium quas saepe earum minima consectetur, sit, ut minus dolorem voluptatum?</p>
+                  <div class="text-end">
+                    <label>
+                    <input type="checkbox" id="modalCheckbox" required>
+                     <span id="acepto"> Acepto los términos y condiciones </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
 
             <button class="btn btn-primary" type="submit" id="regBtn">Registrarme</button>
 

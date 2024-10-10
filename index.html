@@ -14,47 +14,71 @@
 
   <div class="container">
     <main>
-      <div class="row mt-4">
+      <form class="row mt-4 needs-validation" id="form" novalidate>
         <div class="col">
           <h1 class="mb-3">Registro</h1>
           <hr class="my-4">
           <div class="row g-3">
             <div class="col-sm-6">
-              <label for="nombre" class="form-label">Nombre</label>
+              <label for="nombre"  class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombre" required>
+              <span id="mensaje" class="mensaje-error"></span>
             </div>
 
             <div class="col-sm-6">
               <label for="apellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="apellido" required>
+              <input type="text" class="form-control"  id="apellido" required>
+              <span id="mensaje2" class="mensaje-error"></span>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email" required>
+              <span id="mensaje3" class="mensaje-error"></span>
+
             </div>
 
             <div class="col-sm-6">
               <label for="password1" class="form-label">Contraseña</label>
               <input minlength="6" type="password" class="form-control" id="password1" required>
+              <span id="mensaje4" class="mensaje-error"></span>
+
             </div>
 
             <div class="col-sm-6">
               <label for="password2" class="form-label">Repetir contraseña</label>
               <input minlength="6" type="password" class="form-control" id="password2" required>
+              <span id="mensaje5" class="mensaje-error"></span>
+
             </div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="terminos" required>
-              <label class="form-check-label" for="terminos">Acepto los terminos y condiciones del servicio.</label>
-            </div>
+            <h1>Aceptar Términos y Condiciones</h1>
+    <label>
+        <input type="checkbox" id="terminosCheckbox">
+        Acepto los términos y condiciones
+    </label>
+    <br>
+    <button id="modalButton">Abrir Modal</button>
+    <span id="errorMessage" class="error-text"></span>
 
-            <button class="btn btn-primary" type="button" id="regBtn">Registrarme</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" style="cursor:pointer;">&times; Cerrar</span>
+            <h2>Términos y Condiciones</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quasi recusandae eum, odit voluptatum officiis! Commodi magni perspiciatis animi, praesentium quas saepe earum minima consectetur, sit, ut minus dolorem voluptatum?</p>
+            <label>
+                <input type="checkbox" id="modalCheckbox">
+                Acepto los términos y condiciones
+            </label>
+        </div>
+    </div>
+
+            <button class="btn btn-primary" type="submit" id="regBtn">Registrarme</button>
 
 
           </div>
         </div>
-      </div>
+      </form>
 
     </main>
 
@@ -80,4 +104,4 @@
   <script src="js/validacion.js"></script>
 </body>
 
-</html>
+</html>  
